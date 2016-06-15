@@ -21,7 +21,7 @@ func NewAdapter(cnf *Config) *Adapter {
 }
 
 // SendMessage pushes a message to one of Slack's channels
-func (a *Adapter) SendMessage(incomingWebhook, channel, username, text, emoji string) error {
+func (a *Adapter) SendMessage(channel, username, text, emoji string) error {
 	payload := map[string]string{
 		"channel":  channel,
 		"username": username,
@@ -32,11 +32,8 @@ func (a *Adapter) SendMessage(incomingWebhook, channel, username, text, emoji st
 	if err != nil {
 		return err
 	}
-	if incomingWebhook == "" {
-		incomingWebhook = a.cnf.IncomingWebhook
-	}
 	resp, err := http.PostForm(
-		incomingWebhook,
+		a.cnf.IncomingWebhook,
 		url.Values{
 			"payload": {string(payloadJSON)},
 		},

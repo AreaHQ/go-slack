@@ -3,5 +3,5 @@ package slack
 // AdapterInterface defines exported methods
 type AdapterInterface interface {
 	// Exported methods
-	SendMessage(incomingWebhook, channel, username, text, emoji string) error
+	SendMessage(channel, username, text, emoji string) error
 }
