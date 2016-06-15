@@ -16,13 +16,13 @@ import (
 )
 
 func main() {
-  cnf := &slack.Config{IncomingWebhook: "incoming_webhook"}
+	cnf := &slack.Config{IncomingWebhook: "incoming_webhook"}
 	adapter := slack.NewAdapter(cnf)
-  err = adapter.SendMessage(
-    "#some-channel",
-    "some-username",
-    "message to send",
-    "", // emmoji
-  )
+	err = adapter.SendMessage(
+		"#some-channel",
+		"some-username",
+		"message to send",
+		"", // emmoji
+	)
 }
 ```
