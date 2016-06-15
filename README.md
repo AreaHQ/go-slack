@@ -1,4 +1,4 @@
-[![Codeship Status for AreaHQ/go-slack](https://codeship.com/projects/7252c9a0-09f0-0134-e361-2adbeb910e90/status?branch=master)](https://codeship.com/projects/155402)
+[![Codeship Status for AreaHQ/go-slack](https://codeship.com/projects/6812efd0-14f0-0134-4f8d-12348d1f3442/status?branch=master)](https://codeship.com/projects/157933)
 
 # Go Slack
 
