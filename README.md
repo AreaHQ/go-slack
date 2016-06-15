@@ -19,6 +19,7 @@ func main() {
 	cnf := &slack.Config{IncomingWebhook: "incoming_webhook"}
 	adapter := slack.NewAdapter(cnf)
 	err = adapter.SendMessage(
+		"", // optionally provide a specific incoming webhook for this message
 		"#some-channel",
 		"some-username",
 		"message to send",
