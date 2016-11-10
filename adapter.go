@@ -23,11 +23,19 @@ func NewAdapter(cnf *Config) *Adapter {
 // SendMessage pushes a message to one of Slack's channels
 func (a *Adapter) SendMessage(channel, username, text, emoji string) error {
 	payload := map[string]string{
-		"channel":  channel,
-		"username": username,
-		"text":     text,
-		"emoji":    emoji,
+		"text": text,
 	}
+	// All these are optional params, so don't send them if not set
+	if emoji != "" {
+		payload["icon_emoji"] = emoji
+	}
+	if channel != "" {
+		payload["channel"] = channel
+	}
+	if username != "" {
+		payload["username"] = username
+	}
+
 	payloadJSON, err := json.Marshal(payload)
 	if err != nil {
 		return err
